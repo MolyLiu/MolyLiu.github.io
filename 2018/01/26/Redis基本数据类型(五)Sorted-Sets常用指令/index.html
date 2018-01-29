@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="阿坤">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>redis基本数据类型(五)sorted-sets常用指令 - 阿坤</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="nothing want to say">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="习">习</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">轻舟沧海</h1>
+        <h3 class="cover-siteTitle">在人间已是癫，何苦要上青天</h3>
+        <p class="cover-siteDesc">水深则流缓 语迟则人贵</p>
+        <div class="cover-sns">
+            
+            <div class="btn btn-telegram">
+                <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+                    <i class="fa fa-telegram"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-instagram">
+                <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-twitter">
+                <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-github">
+                <a href="https://github.com/MolyLiu" target="_blank" title="github" ref="friend">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/distributed" data-name="分布式">分布式</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/framework" data-name="框架">框架</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/dateStructure" data-name="数据&amp;结构">数据&amp;结构</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/disign" data-name="设计模式">设计模式</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/noting" data-name="牢骚">牢骚</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">Input Search key Words Here</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="Input Search key Words Here" />
+        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-01-26">2018-01-26</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">Redis基本数据类型(五)Sorted-Sets常用指令</h2>
+            <div class="post-meta">
+                本文总共1461个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h4 id="Sorted-Sets"><a href="#Sorted-Sets" class="headerlink" title="Sorted-Sets"></a>Sorted-Sets</h4><p>Sorted-Sets和Sets类型极为相似，它们都是字符串合集，都不允许重复的成员出现在Set中。</p>
+<p>它们之间主要的差别是Sorted-Sets中没一个成员都有一个score一直关联，redis通过分数为集合中的成员进行从小到大排序，==成员必须唯一，但是score可以重复==</p>
+<h5 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h5><blockquote>
+<p>zadd key score member score member</p>
+</blockquote>
+<p>批量添加。若果添加时参数中的某一个成员已经存在，则更新此成员的score为新值，并重新排序。</p>
+<blockquote>
+<p>zcard key</p>
+</blockquote>
+<p>返回包含的成员数量</p>
+<blockquote>
+<p>zcount key min max</p>
+</blockquote>
+<p>返回指定分数区间内的成员数量</p>
+<ul>
+<li>zcount key min max   min&lt;=score&lt;=max</li>
+<li>zcount key (min (max   min&lt;score&lt;max</li>
+<li>zcount key (min max   min&lt;score&lt;=max</li>
+<li>zcount key min (max   min&lt;=score&lt;max</li>
+</ul>
+<blockquote>
+<p>zincrby key increment member</p>
+</blockquote>
+<p>为指定key中的指定成员增加指定sorce.如果key或者member不存在，都闲创建在执行。返回更新后的score</p>
+<blockquote>
+<p>zrange key start stop </p>
+</blockquote>
+<p>返回索引在start stop范围内的成员列表。如果末尾加上==withsorce==， 则连带分数一起返回。</p>
+<blockquote>
+<p>zrangebyscore key min max [WITHSCORES] [Limit offset count]</p>
+</blockquote>
+<p>返回分数在min max指定范围内的分数从低到高的成员列表,==min   max规则可以参照命令zcount==。可选参数withscores表示连带返回对应分数。可选参数LIMIT下offsett表示从符合条件的第offset个成员开始返回，同时返回count个成员。</p>
+<blockquote>
+<p>zrank key member</p>
+</blockquote>
+<p>返回key中member的位置索引值，不存在则返回nil</p>
+<blockquote>
+<p>zrem key member..member</p>
+</blockquote>
+<p>删除成员。返回充公删除的成员数量</p>
+<blockquote>
+<p>zrevrange key start stop [WITHSCORES]</p>
+</blockquote>
+<p>按score==倒序==返回指定范围内的成员列表。start stop 是倒序后的索引值。</p>
+<blockquote>
+<p>zrevrank key member</p>
+</blockquote>
+<p>返回==倒序==后的member对应的索引</p>
+<blockquote>
+<p>zscore key member</p>
+</blockquote>
+<p>返回member对应的score值</p>
+<blockquote>
+<p>zrangebyscore key min max [WITHSCORES] [Limit offset count]</p>
+</blockquote>
+<p>返回分数在==max min== 指定范围内的分数==从高到低==的成员列表,==min   max规则可以参照命令zcount==。可选参数withscores表示连带返回对应分数。可选参数LIMIT下offsett表示从符合条件的第offset个成员开始返回，同时返回count个成员。</p>
+<blockquote>
+<p>zremrangebyrank key start stop</p>
+</blockquote>
+<p>删除索引值在start stop 范围内成员 返回删除成功的成员数量</p>
+<blockquote>
+<p>zremrangebyscore key min max</p>
+</blockquote>
+<p>删除score在min max 范围内的成员，返回删除成功的成员数量。==范围规则参照命令zcount==</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+            <a href="/tags/distributed/">distributed</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/app" title="App下载">App下载</a>
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br/>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '01/16/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>
