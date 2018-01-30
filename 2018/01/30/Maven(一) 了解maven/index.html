@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="阿坤">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>maven(一) 了解maven - 阿坤</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="nothing want to say">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="习">习</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">轻舟沧海</h1>
+        <h3 class="cover-siteTitle">在人间已是癫，何苦要上青天</h3>
+        <p class="cover-siteDesc">水深则流缓 语迟则人贵</p>
+        <div class="cover-sns">
+            
+            <div class="btn btn-telegram">
+                <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+                    <i class="fa fa-telegram"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-instagram">
+                <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-twitter">
+                <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="btn btn-github">
+                <a href="https://github.com/MolyLiu" target="_blank" title="github" ref="friend">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/distributed" data-name="分布式">分布式</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/framework" data-name="框架">框架</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/dateStructure" data-name="数据&amp;结构">数据&amp;结构</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/disign" data-name="设计模式">设计模式</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/nothing" data-name="牢骚">牢骚</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="请输入关键字" />
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-01-30">2018-01-30</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">Maven(一) 了解maven</h2>
+            <div class="post-meta">
+                本文总共5532个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>简而言之，maven是一个jar包的管理工具。有两个作用，一个是统一开发规范与工具，统一管理jar包。更适合</p>
+<h4 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h4><p>pom.xml是maven的核心配置文件，它用来描述整个maven项目。<br>基础pom.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">     </span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.xrq.withmaven&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;withmaven&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;Maven Hello World Project&lt;/name&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<p>下面详细介绍一下各个标签</p>
+<p>1.代码第一行是xml头，指定了该XML文档的版本和编码方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br></pre></td></tr></table></figure>
+<p>2.<br>紧接着是project元素，project是所有pom.xml的根元素，它还声明了一些POM相关的命名空间等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>3.根元素下的第一个元素是modelVersion指定了当前POM模型的版本，对于Maven2 和 Maven3 来说，它只能是4.0.0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br></pre></td></tr></table></figure>
+<p>4.groupId，artifactId和version三个元素定义了一个项目基本的坐标，在Maven的世界中，任何jar，pom或者war都是以这些基本的坐标区分的。后面会详细介绍坐标概念。</p>
+<ul>
+<li>groupId定义了项目属于哪个组，往往和项目所在的组织或公司相关联。比如说在googlecode上建立一个名为myapp的项目，那么groupId就为com.googlecode.myapp。在本实例中为com.sjf.mavendemo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;com.xrq.withmaven&lt;/groupId&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>artifactId定义了当前Maven项目在族中唯一的ID，在本实例中为hello-world。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;artifactId&gt;withmaven&lt;/artifactId&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>version指定了Hello World项目当前的版本，1.0SNAPSHOT。SNAPSHOT意思为快照，说明该项目还处于开发之中，是不稳定的版本。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br></pre></td></tr></table></figure>
+<p>5.name声明了一个对于用户更为友好的项目名称，不是必须的，但是推荐为每个POM声明name，以方便信息交流。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;name&gt;Maven Hello World Project&lt;/name&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h5><p>maven世界中拥有非常巨大的构建，也就是平时用的一些jar,war等文件。在maven为这些构件引入坐标概念之前，我们无法使用任何一种方式来唯一标识所有这些构件</p>
+<p>Maven定义了这样一组==规则==：世界上任何一个构件都可以使用maven坐标唯一标识，maven坐标的元素包括==groupId，artifactId，version，packaging，classifier==。所以当我们提供正确的坐标元素，maven就能找到对应的构件。maven内置了一个中央仓库的地址(<a href="http://repo.maven.org/maven2)，该仓库中包含了世界上大部分流行的开源项目构件，maven在有需要时会去哪里下载。" target="_blank" rel="noopener">http://repo.maven.org/maven2)，该仓库中包含了世界上大部分流行的开源项目构件，maven在有需要时会去哪里下载。</a><br>（下载过程应该是先判断本地仓库中有没有，如果没有再去中央仓库下载）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;com.sjf.mavendemo&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;maven-hello-world&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;1.0.0SNAPSHOT&lt;/version&gt;</span><br><span class="line">&lt;packaging&gt;jar&lt;/packaging&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>groupId:定义当前maven项目隶属的==实际项目==。首先，maven项目和实际项目不一定是一对一的关系。比如SpringFramework这一实际项目，其对应的maven项目会有很多，如: spring-core，spring-context等。这是由于maven中模块的概念，因此，一个实际项目往往会被划分成很多模块。其次，groupId不应该对应项目隶属的组织或公司。原因很简单，一个组织下会有很多个实际项目，如果groupId只定义到组织级别，而后面我们会看到，artifactId只能定义maven项目(模块),那么实际项目这个层将难以定义。最后，groupId的表示方式与java包名的表示方式类似，通常与==域名反向一一对应==。</p>
+</li>
+<li><p>该元素定义实际项目中的一==个maven项目==(模块)，推荐的做法是使用实际项目名称作为artifactId前缀。比如上面实例中的artifactId是mavendemo-hello-world，使用了实际项目名mavendemo作为前缀，这样做的好处是方便寻找实际构件。在默认情况下，maven生成的构件，其文件名会以artifactId作为开头，如:mavendemo-hello-world-1.0.0.jar，使用实际项目名称作为前缀之后，就能方便从一个lib文件夹中找到某个项目的一组构件。</p>
+</li>
+<li><p>该元素定义maven项目当前所处的==版本==，如：mavendemo-hello-world-1.0.0.jar的版本是1.0.0。需要注意的是，maven定义了一套完整的版本规范，以及快照(SNAPSHOT)的概念。</p>
+</li>
+<li><p>packaging : 该元素定义maven项目的==打包方式==。首先，打包方式通常与所生成构件的文件扩展名对应，如：mavendemo-hello-world.1.0.0.jar的packaging为jar，而使用war打包方式的maven项目，最终生成的构件会有一个.war文件，不过这不是绝对的。其次，打包方式会影响到构建的生命周期，比如jar打包和war打包会使用不同的命令。当不定义packaging的时候，maven会使用==默认值==jar</p>
+</li>
+<li><p>classifier : 该元素用来帮助定义构建输出的一些附属构件。附属构件与主构件对应，如上例中的主构件是: mavendemo-hello-world-1.0.0.jar，该项目可能还会通过使用一些插件生成如：mavendemo-hello-world-1.0.0-javadoc.jar、mavendemo-hello-world-1.0.0-sources.jar这样一些附属构件，其包含了java文档和源代码。这时候，javadoc和sources就是这两个附属构件的classifier。这样，附属构件也就拥有了自己唯一的坐标。</p>
+</li>
+</ul>
+<blockquote>
+<p>上述5个元素中，groupId，artifactId，version是必须定义的，packaging是可选的(默认为jar)，而classifier是不能直接定义的。</p>
+</blockquote>
+<h4 id="有关仓库的一些概念"><a href="#有关仓库的一些概念" class="headerlink" title="有关仓库的一些概念"></a>有关仓库的一些概念</h4><blockquote>
+<p>仓库：maven可以在某个位置统一存储所有maven项目共享的构建，这个位置就是仓库。</p>
+</blockquote>
+<p>实际的Maven项目将不会各自存储其依赖文件，它们只需要声明这些依赖的坐标，在需要的时候(例如，编译项目的时候需要将依赖加入到classpath中)，maven会自动根据坐标找到仓库中的构件，并使用它们。为了实现重用，项目构建完毕后生成的构件也可以安装或者部署到仓库中，供其他项目使用。</p>
+<p> 对于maven来说，仓库只分为两类：本地仓库和远程仓库。当maven根据坐标寻找构件的时候，它首先会查看本地仓库，如果本地仓库存在此构件，则直接使用；如果本地仓库不存在此构件，或者需要查看是否有更新的构件版本，maven就会去远程仓库查找，发现需要的构件之后，下载到本地仓库再使用。如果本地仓库和远程仓库都没有需要的构件，maven就会报错。</p>
+<p>==中央仓库==：是maven核心自带的远程仓库，它包含了绝大部分开源的构件。在默认配置下，当本地仓库没有maven需要的构件的时候，它就会尝试从中央仓库下载。私服是另一种特殊的远程仓库，为了节省带宽和时间，应该在局域网内架设一个私有的仓库服务器，用其代理所有外部的远程仓库。内部的项目还能部署到私服上供其他项目使用。除了中央仓库和私服，还有很多其他公开的远程仓库，<br><img src="http://img.blog.csdn.net/20160126155419726" alt="image"></p>
+<h6 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h6><p>默认情况下，不管是在windows还是linux上，每个用户在自己的用户目录下都有一个路径名为.m2/repository/的仓库目录。有时候，因为某些原因(例如C盘空间不够，或者要重装系统等等)，用户会想要自定义本地仓库目录地址。这时，可以编辑文件~/.m2/settings.xml，设置localRepository元素的值为想要的本地仓库地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">&lt;localRepository&gt;D:\IT\maven\repo&lt;/localRepository&gt;</span><br><span class="line">&lt;settings&gt;</span><br></pre></td></tr></table></figure>
+<p>这样，该用户的本地仓库地址就被设置成了 D:\IT\maven\repo。需要==注意==的是，默认情况下，~/.m2/settings.xml文件是不存在的，用户需要从Maven安装目录复制$M2_HOME/conf/settings.xml文件再进行编辑。</p>
+<p>本地仓库好比书房，我需要读书的时候先从书房找，相应的，Maven需要构件的时候先从本地仓库找。远程仓库就好比书店，当我无法从自己的书房找到需要的书的时候，就会从书店购买后放到书房。相应的，当Maven无法从本地仓库找到需要的书的时候，就会从远程仓库下载构件到本地仓库。一般的，对于每个人来说，书房只有一个，但外面的书店却有很多，类似的，对于Maven来说，每个用户只有一个本地仓库，但可以配置很多远程仓库。</p>
+<h6 id="中央仓库"><a href="#中央仓库" class="headerlink" title="中央仓库"></a>中央仓库</h6><p>由于最原始的本地仓库是空的，Maven必须知道至少一个可用的远程仓库，才能在执行Maven命令的时候下载到需要的构件。中央仓库就是这样一个默认的远程仓库</p>
+<h6 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h6><p>如果仓库X可以提供仓库Y存储的所有内容，那么就可以认为X是Y的一个镜像。换句话说，任何一个可以从仓库Y获得的构件，都能够从它的镜像中获取。举个例子，<a href="http://maven.oschina.net/content/groups/public/" target="_blank" rel="noopener">http://maven.oschina.net/content/groups/public/</a> 是中央仓库<a href="http://repo1.maven.org/maven2/" target="_blank" rel="noopener">http://repo1.maven.org/maven2/</a> 在中国的镜像，由于地理位置的因素，该镜像往往能够提供比中央仓库更快的服务。因此，可以配置Maven使用该镜像来替代中央仓库。编辑settings.xml（apache-maven-3.3.9\conf\settings.xml），代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">&lt;id&gt;maven.oschina.net&lt;/id&gt;</span><br><span class="line">&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">&lt;name&gt;maven mirror in China&lt;/name&gt;</span><br><span class="line">&lt;url&gt;http://maven.oschina.net/content/groups/public/&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>
+<p>==小贴士==</p>
+<p>compile 编译<br>clean 清空target目录<br>package 打包<br>install是把打出的包装载到本地仓库，<br>test 运行单元测试</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/distributed/">distributed</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about"  title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/app" title="App下载">App下载</a>
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br/>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '01/16/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>

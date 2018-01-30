@@ -59,9 +59,9 @@
 <div id="nav">
     <nav class="nav-menu">
         <a class="site-name current" href="/" title="习">习</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
         <!-- custom single page of menus -->
         
         
@@ -140,21 +140,21 @@
                 </li>
             
                 <li class="">
-                    <a href="/categories/noting" data-name="牢骚">牢骚</a>
+                    <a href="/categories/nothing" data-name="牢骚">牢骚</a>
                 </li>
             
         
         <li class="page-search">
     <form id="search" class="search-form">
-        <label for="s" class="sr-only">Input Search key Words Here</label>
-        <input class="search-field" type="text" name="s" class="text" placeholder="Input Search key Words Here" />
-        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="请输入关键字" />
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -166,11 +166,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -197,7 +197,7 @@
             </div>
             <h2 class="post-title">oracle事务 数据备份（已解决）</h2>
             <div class="post-meta">
-                本文总共656个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共651个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -205,8 +205,7 @@
 <p>== ！！！ 需要分事务进行提交 ==</p>
 <p>在Oracle中执行DML语句的时候是需要显示进行提交操作的。当我们进行插入的时候，会触发触发器执行对触发器作用表和扩展表的种种操作，但是这个时候触发器和插入语句是在同一个事务管理中的，因此在插入语句没有被提交的情况下，我们无法对触发器作用表进行其他额外的操作。如果执行其他额外的操作则会抛出如上异常信息。<br>：1,我们知道，出错的原因是因为触发器和DML语句在同一事务管理中，所以方案一便是将触发器和DML语句分成两个单独的事务处理。这里可以使用Pragma autonomous_transaction; 告诉Oracle触发器是自定义事务处理。</p>
 <p><img src="https://i.imgur.com/sdnJInR.png" alt=""></p>
-<p>####code</p>
-<p>CREATE OR REPLACE TRIGGER “ZENGXFC_TZYY_0922”.”UFOC_DETI” </p>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><p>CREATE OR REPLACE TRIGGER “ZENGXFC_TZYY_0922”.”UFOC_DETI” </p>
 <p>BEFORE DELETE ON UFOC_MEASPROMAP</p>
 <p>FOR EACH ROW</p>
 <p>DECLARE</p>
@@ -226,7 +225,7 @@ COMMIT;
             </a>
         </div>
         
-        <div class="post-tags">Tags：
+        <div class="post-tags">标签：
             
             <a href="/tags/dateStructure/">dateStructure</a>
             
@@ -244,7 +243,7 @@ COMMIT;
     <footer class="footer">
     <div class="footer-inner">
         <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/about"  title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
             <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp

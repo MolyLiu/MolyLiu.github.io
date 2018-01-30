@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>redis事务（一）相关命令 - 阿坤</title>
+<title>maven(一)依赖配置与依赖范围 - 阿坤</title>
 
 <meta name="keywords" content="">
 
@@ -191,37 +191,105 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="" target="_blank"></a>
-                    <span title="最后编辑于2018-01-29">2018-01-29</span>
+                    <span title="最后编辑于2018-01-30">2018-01-30</span>
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">Redis事务（一）相关命令</h2>
+            <h2 class="post-title">Maven(一)依赖配置与依赖范围</h2>
             <div class="post-meta">
-                本文总共457个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共2593个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h4 id="redis事务"><a href="#redis事务" class="headerlink" title="redis事务"></a>redis事务</h4><h5 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h5><blockquote>
-<p>MULTI</p>
+            <h3 id="依赖配置"><a href="#依赖配置" class="headerlink" title="依赖配置"></a>依赖配置</h3><p>举例说明依赖的概念，项目中测试需要依赖junit.jar包，依赖配置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;3.8.1&lt;/version&gt;</span><br><span class="line">&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<p>根元素下project下的dependencies可以包含==一个或者多个dependency元素==，以声明一个或者多个项目依赖。每个依赖可以包含的元素有：</p>
+<ul>
+<li>groupId,artifactId和version：依赖的基本==坐标==，对于任何一个依赖来说，基本坐标是最重要的，Maven根据坐标才能找到需要的依赖。</li>
+<li>type：依赖的==类型==，对应于项目坐标定义的packaging。大部分情况下，该元素不必声明，其默认值是jar。</li>
+<li>scope：依赖的==范围==，下面会进行详解。</li>
+<li>optional：==标记==依赖是否可选。</li>
+<li>exclusions：用来排除==传递性==依赖，后面文章会详细介绍。</li>
+</ul>
+<h3 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h3><blockquote>
+<p> Maven在编译主代码的时候需要使用一套classpath,在编译和执行测试的时候会使用另一套classpath,实际运行项目的时候，又会使用一套classpath</p>
 </blockquote>
-<p>用于标记事务的开始，其后执行的命令都被存入命令队列，直到执行EXEC时，这些命令才会被原子的执行。</p>
+<p>Maven在编译主代码的时候需要使用一套classpath,在编译和执行测试的时候会使用另一套classpath,实际运行项目的时候，又会使用一套classpath</p>
+<ul>
+<li><p>compile：==编译==依赖范围。如果没有指定，就会默认使用该依赖范围。使用此依赖范围的Maven依赖，对于编译、测试、运行三种classpath都有效。典型的例子是spring-core，在编译，测试和运行的时候都需要使用该依赖。</p>
+</li>
+<li><p>provided：==已提供依赖范围==。使用此依赖范围的Maven依赖，对于编译和测试classpath有效，但在运行时无效。典型的例子是servlet-api，编译和测试项目的时候需要该依赖，但在运行项目的时候，由于容器已经提供，就不需要Maven重复地引入一遍。</p>
+</li>
+<li><p>test：==测试==依赖范围。使用此依赖范围的Maven依赖，只对于测试classpath有效，在编译主代码或者运行项目的使用时将无法使用此类依赖。典型的例子就是JUnit，它只有在编译测试代码及运行测试的时候才需要。</p>
+</li>
+<li><p>runtime：==运行时==依赖范围。使用此依赖范围的Maven依赖，对于测试和运行classpath有效，但在编译主代码时无效。典型的例子是JDBC驱动实现，项目主代码的编译只需要JDK提供的JDBC接口，只有在执行测试或者运行项目的时候才需要实现上述接口的具体JDBC驱动。</p>
+</li>
+<li><p>system：==系统==依赖范围。该依赖范围与provided所表示的依赖范围一致，对于编译和测试classpath有效，但在运行时无效。只是使用system范围依赖时必须通过systemPath元素显式地指定依赖文件的路径。由于此类依赖不是通过Maven仓库解析的，而且往往与本机系统绑定，可能造成构建的不可移植，因此应该谨慎使用，systemPath元素可以引用环境变量。举个例子：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;javax.sql&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;jdbc-stdext&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;2.0&lt;/version&gt;</span><br><span class="line">&lt;scope&gt;&lt;/scope&gt;</span><br><span class="line">&lt;systemPath&gt;$&#123;java.home&#125;/lib/rt.jar&lt;/systemPath&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>import(Maven 2.0.9及以上)：导入依赖范围。该依赖范围不会对三种classpath产生实际的影响。</li>
+</ul>
+<p>上述除import以外的各种依赖范围与三种classpath的关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>依赖范围scope</th>
+<th>测试classpath</th>
+<th>编译classpath</th>
+<th>运行classpa</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>spring-core</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Y</td>
+<td>Y</td>
+<td></td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>test</td>
+<td>Y</td>
+<td></td>
+<td></td>
+<td>junit</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>Y</td>
+<td></td>
+<td>Y</td>
+<td>JDBC驱动实现</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Y</td>
+<td>Y</td>
+<td></td>
+<td>本地的，Maven仓库之外的类库文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="传递性依赖"><a href="#传递性依赖" class="headerlink" title="传递性依赖"></a>传递性依赖</h3><p>有关于maven的传递性依赖机制：</p>
 <blockquote>
-<p>EXEC</p>
+<p>传递性依赖实在maven2中添加的新特征，这个特征的作用就是我不需要考虑我依赖的库文件所需要依赖的库文件，能够将依赖模块的依赖自动的引入。</p>
 </blockquote>
-<p>执行在一个事务内命令队列中的所有指令，同时将当前连接的状态恢复为非事务状态。</p>
-<p>如果在事务中执行了 WATCH命令，那么只有当WATCH所监控的Keys没有被修改的前提下，EXEC命令才能执行事务队列中的所有命令，否则将放弃当前是事务中的所有命令。</p>
-<blockquote>
-<p>DISCARD</p>
-</blockquote>
-<p>回滚事务队列中的所有命令，同时再将当前连接的状态恢复为==非事务状态==。如果WATCH命令被使用，该命令将UNWATCH所有的Keys.</p>
-<blockquote>
-<p>WATCH key..key</p>
-</blockquote>
-<p>在MULTI命令执行之前，可以指定待监控的Keys，然而在执行EXEC之前，如果被监控的Keys发生修改，EXEC将放弃执行该事务队列中的所有命令。</p>
-<blockquote>
-<p>UNWATCH </p>
-</blockquote>
-<p>取消当前事务中指定监控的Keys，如果执行了EXEC或DISCARD命令，则无需再手动执行该命令，因为在此之后事务中所有被监控的Keys都将自动取消。</p>
+<p>有了传递性依赖机制，在使用时我们不需要考虑它依赖了什么，也不用担心引入多余的依赖。Maven会解析各个直接依赖的pom,讲那些必要的间接依赖，以传递性依赖的形式引入到当前的项目中。</p>
+<h6 id="传递性依赖与依赖范围"><a href="#传递性依赖与依赖范围" class="headerlink" title="传递性依赖与依赖范围"></a>传递性依赖与依赖范围</h6><p> 依赖范围不仅可以控制依赖与三种classpath的关系，还对传递性依赖产生影响。上面例子中，springdemo-helloworld对于spring-core的依赖范围是compile，spring-core对于commons-logging的依赖范围是compile，那么springdemo-helloworld对于commons-logging这一传递性依赖的范围也就是compile。假设A依赖于B，B依赖于C，我们说A对于B是第一直接依赖，B对C是第二直接依赖，A对于C是传递性依赖。第一直接依赖的范围和第二直接依赖的范围决定了传递性依赖的范围。</p>
+<p> 最左边一行表示第一直接依赖范围，最上面一行表示第二直接依赖范围，中间的交叉单元格则表示传递性依赖范围。</p>
+<p><img src="https://i.imgur.com/MifxLhZ.png" alt=""></p>
+<hr>
+<p>==小贴士==<br>maven建议下载后与IDE集成。IDEA自带的maven是没有配置文件的，所以需要单独配置。</p>
 
         </div>
         <div class="post-tool">

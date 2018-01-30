@@ -59,9 +59,9 @@
 <div id="nav">
     <nav class="nav-menu">
         <a class="site-name current" href="/" title="习">习</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
         <!-- custom single page of menus -->
         
         
@@ -140,21 +140,21 @@
                 </li>
             
                 <li class="">
-                    <a href="/categories/noting" data-name="牢骚">牢骚</a>
+                    <a href="/categories/nothing" data-name="牢骚">牢骚</a>
                 </li>
             
         
         <li class="page-search">
     <form id="search" class="search-form">
-        <label for="s" class="sr-only">Input Search key Words Here</label>
-        <input class="search-field" type="text" name="s" class="text" placeholder="Input Search key Words Here" />
-        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="请输入关键字" />
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -166,11 +166,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -197,7 +197,7 @@
             </div>
             <h2 class="post-title">Redis基本数据类型(二)List常用指令</h2>
             <div class="post-meta">
-                本文总共1169个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1153个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
@@ -208,7 +208,7 @@
 <blockquote>
 <p>lpushx key value</p>
 </blockquote>
-<p>在==存在==的key所对应的链表头部插入值 返回链表个数 </p>
+<p>在<strong>存在</strong>的key所对应的链表头部插入值 返回链表个数 </p>
 <blockquote>
 <p>lrange key start end</p>
 </blockquote>
@@ -216,7 +216,7 @@
 <blockquote>
 <p>lpop key</p>
 </blockquote>
-<p>返回并且==弹出==头部的值</p>
+<p>返回并且<strong>弹出</strong>头部的值</p>
 <blockquote>
 <p>llen key</p>
 </blockquote>
@@ -228,7 +228,7 @@
 <blockquote>
 <p>lset kdy index value</p>
 </blockquote>
-<p>设置指定位置的值为新值 ==index=0表示第一个元素 index=-1表示最后一个元素==</p>
+<p>设置指定位置的值为新值 <strong>index=0表示第一个元素 index=-1表示最后一个元素</strong></p>
 <blockquote>
 <p>lindex key index</p>
 </blockquote>
@@ -256,7 +256,7 @@
 <blockquote>
 <p>rpoplpush source destination</p>
 </blockquote>
-<p>将source链表的尾部元素 添加到destination链表的头部。redis链表经常会被用于==消息队列==的服务，以完成多程序之间的消息交换。假设一个应用程序正在执行lpush操作向链表中添加新的元素，我们通常将这样的程序称之为“生产者（produce）”，而另外一个应用程序正在执行rpop操作从链表中区中元素，我们称这样的程序为“消费者（consumer）”。</p>
+<p>将source链表的尾部元素 添加到destination链表的头部。redis链表经常会被用于<strong>消息队列</strong>的服务，以完成多程序之间的消息交换。假设一个应用程序正在执行lpush操作向链表中添加新的元素，我们通常将这样的程序称之为“生产者（produce）”，而另外一个应用程序正在执行rpop操作从链表中区中元素，我们称这样的程序为“消费者（consumer）”。</p>
 <p>如果此时，消费者程序在取出消息元素后立刻崩溃，由于该消息已经被取出且没有被正常处理，那么我们就可以认为该消息已经丢失。然而通过使用rpoplpush命令，消费者程序在从主消息队列中取出消息之后再将其插入到备份队列中，知道消费者程序完成正常的处理逻辑后再将该消息从备份队列中删除。同时我们还可以提供一个守护进程，当发现备份队列中的消息过期时，可以重新将其再放回到主消息队列中，以便其他消费者程序继续处理。</p>
 
         </div>
@@ -266,7 +266,7 @@
             </a>
         </div>
         
-        <div class="post-tags">Tags：
+        <div class="post-tags">标签：
             
             <a href="/tags/distributed/">distributed</a>
             
@@ -284,7 +284,7 @@
     <footer class="footer">
     <div class="footer-inner">
         <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/about"  title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
             <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp

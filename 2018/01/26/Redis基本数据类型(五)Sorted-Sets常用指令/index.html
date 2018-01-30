@@ -59,9 +59,9 @@
 <div id="nav">
     <nav class="nav-menu">
         <a class="site-name current" href="/" title="习">习</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
         <!-- custom single page of menus -->
         
         
@@ -140,21 +140,21 @@
                 </li>
             
                 <li class="">
-                    <a href="/categories/noting" data-name="牢骚">牢骚</a>
+                    <a href="/categories/nothing" data-name="牢骚">牢骚</a>
                 </li>
             
         
         <li class="page-search">
     <form id="search" class="search-form">
-        <label for="s" class="sr-only">Input Search key Words Here</label>
-        <input class="search-field" type="text" name="s" class="text" placeholder="Input Search key Words Here" />
-        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
+        <label for="s" class="sr-only">请输入关键字</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="请输入关键字" />
+        <button type="submit" class="search-form-submit" title="搜索"><i class="fa fa-search"></i></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -166,11 +166,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -197,12 +197,12 @@
             </div>
             <h2 class="post-title">Redis基本数据类型(五)Sorted-Sets常用指令</h2>
             <div class="post-meta">
-                本文总共1461个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共1426个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <h4 id="Sorted-Sets"><a href="#Sorted-Sets" class="headerlink" title="Sorted-Sets"></a>Sorted-Sets</h4><p>Sorted-Sets和Sets类型极为相似，它们都是字符串合集，都不允许重复的成员出现在Set中。</p>
-<p>它们之间主要的差别是Sorted-Sets中没一个成员都有一个score一直关联，redis通过分数为集合中的成员进行从小到大排序，==成员必须唯一，但是score可以重复==</p>
+<p>它们之间主要的差别是Sorted-Sets中没一个成员都有一个score一直关联，redis通过分数为集合中的成员进行从小到大排序，<strong>成员必须唯一，但是score可以重复</strong></p>
 <h5 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h5><blockquote>
 <p>zadd key score member score member</p>
 </blockquote>
@@ -228,11 +228,11 @@
 <blockquote>
 <p>zrange key start stop </p>
 </blockquote>
-<p>返回索引在start stop范围内的成员列表。如果末尾加上==withsorce==， 则连带分数一起返回。</p>
+<p>返回索引在start stop范围内的成员列表。如果末尾加上<strong>withsorce</strong>， 则连带分数一起返回。</p>
 <blockquote>
 <p>zrangebyscore key min max [WITHSCORES] [Limit offset count]</p>
 </blockquote>
-<p>返回分数在min max指定范围内的分数从低到高的成员列表,==min   max规则可以参照命令zcount==。可选参数withscores表示连带返回对应分数。可选参数LIMIT下offsett表示从符合条件的第offset个成员开始返回，同时返回count个成员。</p>
+<p>返回分数在min max指定范围内的分数从低到高的成员列表,<strong>min   max规则可以参照命令zcount</strong>。可选参数withscores表示连带返回对应分数。可选参数LIMIT下offsett表示从符合条件的第offset个成员开始返回，同时返回count个成员。</p>
 <blockquote>
 <p>zrank key member</p>
 </blockquote>
@@ -244,11 +244,11 @@
 <blockquote>
 <p>zrevrange key start stop [WITHSCORES]</p>
 </blockquote>
-<p>按score==倒序==返回指定范围内的成员列表。start stop 是倒序后的索引值。</p>
+<p>按score<strong>倒序</strong>返回指定范围内的成员列表。start stop 是倒序后的索引值。</p>
 <blockquote>
 <p>zrevrank key member</p>
 </blockquote>
-<p>返回==倒序==后的member对应的索引</p>
+<p>返回<strong>倒序</strong>地方后的member对应的索引</p>
 <blockquote>
 <p>zscore key member</p>
 </blockquote>
@@ -256,7 +256,7 @@
 <blockquote>
 <p>zrangebyscore key min max [WITHSCORES] [Limit offset count]</p>
 </blockquote>
-<p>返回分数在==max min== 指定范围内的分数==从高到低==的成员列表,==min   max规则可以参照命令zcount==。可选参数withscores表示连带返回对应分数。可选参数LIMIT下offsett表示从符合条件的第offset个成员开始返回，同时返回count个成员。</p>
+<p>返回分数在<strong>max min</strong>指定范围内的分数<strong>从高到低</strong>的成员列表,<strong>min   max规则可以参照命令zcount</strong>。可选参数withscores表示连带返回对应分数。可选参数LIMIT下offsett表示从符合条件的第offset个成员开始返回，同时返回count个成员。</p>
 <blockquote>
 <p>zremrangebyrank key start stop</p>
 </blockquote>
@@ -264,7 +264,7 @@
 <blockquote>
 <p>zremrangebyscore key min max</p>
 </blockquote>
-<p>删除score在min max 范围内的成员，返回删除成功的成员数量。==范围规则参照命令zcount==</p>
+<p>删除score在min max 范围内的成员，返回删除成功的成员数量。<strong>范围规则参照命令zcount</strong></p>
 
         </div>
         <div class="post-tool">
@@ -273,7 +273,7 @@
             </a>
         </div>
         
-        <div class="post-tags">Tags：
+        <div class="post-tags">标签：
             
             <a href="/tags/distributed/">distributed</a>
             
@@ -291,7 +291,7 @@
     <footer class="footer">
     <div class="footer-inner">
         <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/about"  title="关于本站">关于本站</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
             <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
