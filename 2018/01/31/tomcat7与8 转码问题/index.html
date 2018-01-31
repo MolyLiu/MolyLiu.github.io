@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>redis基本数据类型(四)hashes常用指令 - 阿坤</title>
+<title>tomcat7与8 转码问题 - 阿坤</title>
 
 <meta name="keywords" content="">
 
@@ -191,65 +191,24 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="" target="_blank"></a>
-                    <span title="最后编辑于2018-01-26">2018-01-26</span>
+                    <span title="最后编辑于2018-01-31">2018-01-31</span>
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">Redis基本数据类型(四)Hashes常用指令</h2>
+            <h2 class="post-title">tomcat7与8 转码问题</h2>
             <div class="post-meta">
-                本文总共645个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共213个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h4 id="Hashes"><a href="#Hashes" class="headerlink" title="Hashes"></a>Hashes</h4><p>redis中hashes可以看做是具有string key和string value的map容器。很适合存储==值对象==的信息</p>
-<h5 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h5><blockquote>
-<p>hset key field value</p>
+            <blockquote>
+<p>在项目测试的过程中，对于模糊查询部分。出现了输入字符串是乱码的问题 。经过排查后发现是tomcat7与tomcat8版本不同导致的。</p>
 </blockquote>
-<p>为指定的key设定field/value对，如果key不存在，则创建再执行，如果field已存在，则覆盖</p>
-<blockquote>
-<p>hget key filed</p>
-</blockquote>
-<p>返回指定key中指定filed的关联值</p>
-<blockquote>
-<p>hexists key field </p>
-</blockquote>
-<p>判断指定key中指定field是否存在。</p>
-<blockquote>
-<p>hlen key</p>
-</blockquote>
-<p>获取该key所包含的field的数量。</p>
-<blockquote>
-<p>hdel key field ..field</p>
-</blockquote>
-<p>删除一个字段。返回删除成功的数量</p>
-<blockquote>
-<p>hsetnx key field value</p>
-</blockquote>
-<p>只有当参数中的key/field不存在的时候进行操作，否则不会进行任何操作</p>
-<blockquote>
-<p>hincrby key field increment</p>
-</blockquote>
-<p>原子性加 increment值，返回运算之后的值</p>
-<blockquote>
-<p>hgetall key</p>
-</blockquote>
-<p>获得所有的field/value对，格式为一个field 一个value</p>
-<blockquote>
-<p>hkeys key</p>
-</blockquote>
-<p>返回key包含的所有field</p>
-<blockquote>
-<p>hvals key</p>
-</blockquote>
-<p>返回key所包含的所有value名</p>
-<blockquote>
-<p>hmget key field..filed</p>
-</blockquote>
-<p>返回指定的fields值</p>
-<blockquote>
-<p>hmset key field value ..field value</p>
-</blockquote>
-<p>批量添加fidle/value 对，如果field已经存在 ,则用新值覆盖。</p>
+<h1 id="Tomcat7默认的url串参数值是ios-8859-1编码；而Tomcat8默认的是UTF-8。"><a href="#Tomcat7默认的url串参数值是ios-8859-1编码；而Tomcat8默认的是UTF-8。" class="headerlink" title="Tomcat7默认的url串参数值是ios-8859-1编码；而Tomcat8默认的是UTF-8。"></a>Tomcat7默认的url串参数值是ios-8859-1编码；而Tomcat8默认的是UTF-8。</h1><p>当tomcat版本是7的时候。要如何对url进行转码(注意前后端都要转码 )</p>
+<p>前端js:</p>
+<p>encodeURI()</p>
+<p>后端java:</p>
+<p>URLDecoder.decode(“”,”utf-8”)</p>
 
         </div>
         <div class="post-tool">
@@ -260,7 +219,7 @@
         
         <div class="post-tags">Tags：
             
-            <a href="/tags/distributed/">distributed</a>
+            <a href="/tags/nothing/">nothing</a>
             
         </div>
         
