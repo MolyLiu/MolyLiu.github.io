@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>redis事务（一）相关命令 - 阿坤</title>
+<title>负载均衡 - 阿坤</title>
 
 <meta name="keywords" content="">
 
@@ -191,38 +191,20 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="" target="_blank"></a>
-                    <span title="最后编辑于2018-01-29">2018-01-29</span>
+                    <span title="最后编辑于2018-07-12">2018-07-12</span>
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">Redis事务（一）相关命令</h2>
+            <h2 class="post-title">负载均衡</h2>
             <div class="post-meta">
-                本文总共457个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共262个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h4 id="redis事务"><a href="#redis事务" class="headerlink" title="redis事务"></a>redis事务</h4><h5 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h5><blockquote>
-<p>MULTI</p>
-</blockquote>
-<p>用于标记事务的开始，其后执行的命令都被存入命令队列，直到执行EXEC时，这些命令才会被原子的执行。</p>
-<blockquote>
-<p>EXEC</p>
-</blockquote>
-<p>执行在一个事务内命令队列中的所有指令，同时将当前连接的状态恢复为非事务状态。</p>
-<p>如果在事务中执行了 WATCH命令，那么只有当WATCH所监控的Keys没有被修改的前提下，EXEC命令才能执行事务队列中的所有命令，否则将放弃当前是事务中的所有命令。</p>
-<blockquote>
-<p>DISCARD</p>
-</blockquote>
-<p>回滚事务队列中的所有命令，同时再将当前连接的状态恢复为==非事务状态==。如果WATCH命令被使用，该命令将UNWATCH所有的Keys.</p>
-<blockquote>
-<p>WATCH key..key</p>
-</blockquote>
-<p>在MULTI命令执行之前，可以指定待监控的Keys，然而在执行EXEC之前，如果被监控的Keys发生修改，EXEC将放弃执行该事务队列中的所有命令。</p>
-<blockquote>
-<p>UNWATCH </p>
-</blockquote>
-<p>取消当前事务中指定监控的Keys，如果执行了EXEC或DISCARD命令，则无需再手动执行该命令，因为在此之后事务中所有被监控的Keys都将自动取消。</p>
-
+            <p>前言：<br>经常听人说，负载均衡负载均衡。不是很理解其中的意思，做一份笔记从头学习一下。</p>
+<h2 id="什么是负载均衡？为什么需要负载均衡？"><a href="#什么是负载均衡？为什么需要负载均衡？" class="headerlink" title="什么是负载均衡？为什么需要负载均衡？"></a>什么是负载均衡？为什么需要负载均衡？</h2><p>在早期的互联网时代，业务流量少，业务逻辑也相对简单，一台服务器就可以满足基本需求。随着互联网时代的发展，业务流量越来越大并且业务逻辑也越来越复杂，单台机器的性能问题以及单点问题凸显了出来，因此需要多台机器来进行性能的水平扩展以及避免单点故障。</p>
+<p>单点故障：字面意思。单个点发生故障的时候会波及到整个系统或者网络，从而导致整个系统或者网络的瘫痪。 这也是IT基础设施设计时应该避免的。</p>
+<h2 id="如何达到负载均衡的目的"><a href="#如何达到负载均衡的目的" class="headerlink" title="如何达到负载均衡的目的"></a>如何达到负载均衡的目的</h2>
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -232,7 +214,7 @@
         
         <div class="post-tags">标签：
             
-            <a href="/tags/distributed/">distributed</a>
+            <a href="/tags/nothing/">nothing</a>
             
         </div>
         
